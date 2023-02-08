@@ -11,7 +11,6 @@ export function CreateOffer() {
     let handleSubmit = async (e) => {
         e.preventDefault();
         try {
-
             const data = Array.from(formElement.current.elements)
                 .filter((input) => input.name)
                 .reduce(

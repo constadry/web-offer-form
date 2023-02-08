@@ -3,6 +3,13 @@ import { useState } from 'react';
 import { useRef } from "react";
 
 import { Container, Form, Button } from "react-bootstrap";
+import styled from "styled-components";
+
+const Styles = styled.div`
+    * {
+       width: 500px; 
+    }
+`
 
 export function CreateOffer() {
     const [message, setMessage] = useState("");
@@ -43,67 +50,70 @@ export function CreateOffer() {
         <Container>
             <Form
                 onSubmit={handleSubmit}
-                ref={formElement}>
+                ref={formElement}
+                className="gap-2 mt-2 d-flex flex-column align-items-center"
+            >
+                <Styles>
+                    <Form.Group className="mb-3" controlId="formSenderCity">
+                        <Form.Label>Город отправителя</Form.Label>
+                        <Form.Control
+                            type="text"
+                            name="senderCity"
+                            required
+                        />
+                    </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formSenderCity">
-                    <Form.Label>Город отправителя</Form.Label>
-                    <Form.Control
-                        type="text"
-                        name="senderCity"
-                        required
-                    />
-                </Form.Group>
+                    <Form.Group className="mb-3" controlId="formSenderAddress">
+                        <Form.Label>Адрес отправителя</Form.Label>
+                        <Form.Control
+                            type="text"
+                            name="senderAddress"
+                            required
+                        />
+                    </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formSenderAddress">
-                    <Form.Label>Адрес отправителя</Form.Label>
-                    <Form.Control
-                        type="text"
-                        name="senderAddress"
-                        required
-                    />
-                </Form.Group>
+                    <Form.Group className="mb-3" controlId="formRecipientCity">
+                        <Form.Label>Город получателя</Form.Label>
+                        <Form.Control
+                            type="text"
+                            name="recipientCity"
+                            required
+                        />
+                    </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formRecipientCity">
-                    <Form.Label>Город получателя</Form.Label>
-                    <Form.Control
-                        type="text"
-                        name="recipientCity"
-                        required
-                    />
-                </Form.Group>
+                    <Form.Group className="mb-3" controlId="formRecipientAddress">
+                        <Form.Label>Адрес получателя</Form.Label>
+                        <Form.Control
+                            type="text"
+                            name="recipientAddress"
+                            required
+                        />
+                    </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formRecipientAddress">
-                    <Form.Label>Адрес получателя</Form.Label>
-                    <Form.Control
-                        type="text"
-                        name="recipientAddress"
-                        required
-                    />
-                </Form.Group>
+                    <Form.Group className="mb-3" controlId="formProductWeight">
+                        <Form.Label>Вес груза</Form.Label>
+                        <Form.Control
+                            type="number"
+                            name="productWeight"
+                            required
+                        />
+                    </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formProductWeight">
-                    <Form.Label>Вес груза</Form.Label>
-                    <Form.Control
-                        type="number"
-                        name="productWeight"
-                        required
-                    />
-                </Form.Group>
+                    <Form.Group className="mb-3" controlId="formPickupDate">
+                        <Form.Label>Дата забора груза</Form.Label>
+                        <Form.Control
+                            type="date"
+                            name="pickupDate"
+                            required
+                        />
+                    </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formPickupDate">
-                    <Form.Label>Дата забора груза</Form.Label>
-                    <Form.Control
-                        type="date"
-                        name="pickupDate"
-                        required
-                    />
-                </Form.Group>
+                    <Button variant="primary" type="submit">
+                        Submit
+                    </Button>
 
-                <Button variant="primary" type="submit">
-                    Submit
-                </Button>
-
-                <div className="message">{message ? <p>{message}</p> : null}</div>
+                    <div className="message">{message ? <p>{message}</p> : null}</div>
+                </Styles>
             </Form>
         </Container>
     )

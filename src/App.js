@@ -5,6 +5,7 @@ import { Home } from './Home';
 import { CreateOffer } from './CreateOffer';
 import { Offers } from './Offers';
 import Login from './Login';
+import useToken from './useToken';
 
 import {
   BrowserRouter as Router,
@@ -13,11 +14,11 @@ import {
 } from 'react-router-dom'
 
 function App() {
-  const [token, setToken] = useState();
+  const {token, setToken} = useToken();
 
-  // if (!token) {
-  //   return <Login setToken={setToken}/>
-  // }
+  if (!token) {
+    return <Login setToken={setToken}/>
+  }
 
   return (
     <>

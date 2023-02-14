@@ -25,6 +25,8 @@ export function CreateOffer() {
                     {}
                 );
 
+            data.push({userEmail: localStorage.getItem("email")});
+
             console.log(JSON.stringify(data));
 
             let res = await fetch("https://localhost:7290/api/offer", {

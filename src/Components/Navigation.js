@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Nav, Navbar } from "react-bootstrap";
+import { Button, Container, Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
@@ -27,6 +27,7 @@ export default function Navigation() {
                                 <Nav.Link><Link to="/create-offer">Создать заказ</Link></Nav.Link>
                             </Nav>
                         </Navbar.Collapse>
+                        <Button onClick={() => localStorage.clear()}>Log out</Button>
                     </Container>
                 </Navbar>
             </Styles>

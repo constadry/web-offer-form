@@ -8,7 +8,8 @@ export function Offers() {
     const [show, setShow] = useState(false);
 
     const fecthProducts = async () => {
-        let response = await fetch("https://localhost:7290/api/offer");
+        let userEmail = localStorage.getItem("email"); 
+        let response = await fetch('https://localhost:7290/api/offer/' + userEmail);
         if (response.ok) {
             let json = await response.json();
             setProducts(json);
